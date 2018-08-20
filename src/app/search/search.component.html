@@ -1,0 +1,46 @@
+<div class="search_block">
+
+  <div class="search_input">
+    <h1>Start type Github user name</h1>
+    <mat-form-field>
+      <input 
+      matInput 
+      placeholder="Start type user name" 
+      [(ngModel)]="searchStr"
+      [minlength]="minLength"
+      (ngModelChange)="handleChange()"
+      >
+      <mat-error>
+        Min length is {{ minLength }}. Now it is {{ searchStr.length }}
+      </mat-error>
+    </mat-form-field>
+  </div>
+
+  <mat-card class="card" *ngIf="isLoaded">
+      <mat-card-header>
+        <mat-card-title>{{user.name}}</mat-card-title>
+        <mat-card-subtitle>{{ user.location }}</mat-card-subtitle>
+      </mat-card-header>
+      <img 
+      mat-card-image 
+      [src]="user.avatar_url" 
+      [alt]="user.name"
+      >
+      <mat-card-content>
+        <mat-list role="list">
+            <mat-list-item role="listitem">Type: {{ user.type }}</mat-list-item>
+            <mat-list-item role="listitem">ID: {{ user.id }}</mat-list-item>
+            <mat-list-item role="listitem">Public_repos: {{ user.public_repos }}</mat-list-item>
+          </mat-list>
+      </mat-card-content>
+      <mat-card-actions class="center">
+        <a 
+        mat-raised-button 
+        color="warn" 
+        target="_blank"
+        [href]="user.html_url"
+        >
+        View Profile</a>
+      </mat-card-actions>
+    </mat-card>
+</div>
