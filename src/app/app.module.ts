@@ -13,7 +13,7 @@ import { AppComponent } from './app.component';
 import { ToolbarComponent } from './toolbar/toolbar.component';
 import { SearchComponent } from './search/search.component';
 import { FormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
 import { UsersService } from './users.service';
 
 @NgModule({
@@ -31,7 +31,7 @@ import { UsersService } from './users.service';
     MatButtonModule,
     MatListModule,
     FormsModule,
-    HttpModule,
+    HttpClientModule,
   ],
   providers: [UsersService],
   bootstrap: [AppComponent]
